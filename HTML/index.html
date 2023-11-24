@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebrare</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.min.css" />
+</head>
+<body>
+    <div class="container">
+        <header class="head">
+            <nav>
+                <h1>Celebrare</h1>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Files</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+            <div class="content">
+                <h1>Upload Image</h1>
+                <input type="file" id="inputImage" name="file_img" accept="image/*">
+                
+                <div id="popup-container">
+                    <div id="popup-content">
+                        <span id="close-btn" onclick="closePopup()">&times;</span>
+                        <p>Select and Crop the size you want and click on the crop button to save the cropped size of image.</p>
+                        <div class="image-container">
+                            <img id="previewImage" src="" alt="Preview">
+                        </div>
+                        <div class="controls">
+                            <button class="btn_controls" onclick="crop()">Crop</button>
+                            <button class="btn_controls" onclick="rotate()">Rotate</button>
+                            <button class="btn_controls" onclick="flipHorizontal()">Flip Horizontal</button>
+                            <button class="btn_controls" onclick="flipVertical()">Flip Vertical</button>
+                        </div>
+                        <button class="btn_submit" onclick="defineShape()">OK</button>
+                    </div>
+                </div>
+
+                <div id="cropPopup" class="popup-container">
+                    <div id="cropContent" class="popup-content">
+                        <span id="closeCropBtn" onclick="closeCropPopup()">&times;</span>
+                        <div class="image-container" class="mask1" id="maskedImage">
+                            <img id="cropImage" src="" alt="Preview">
+                        </div>
+                        <div class="shape-controls">
+                            <button class="shape-btn"  onclick="original()">Original</button>
+                            <button class="shape-btn"  onclick="changeMask('rectangle')"><img src="../Assets/user_rectangle.png" alt=""></button>
+                            <button class="shape-btn"  onclick="changeMask('square')"><img src="../Assets/user_square.png" alt=""></button>
+                            <button class="shape-btn"  onclick="changeMask('circle')"><img src="../Assets/user_circle.png" alt=""></button>
+                            <button class="shape-btn"  onclick="changeMask('heart')"><img src="../Assets/user_heart.png" alt=""></button>
+                        </div>
+                        <button class="btn_submit" onclick="previewMainImage()">Choose this Image</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="mainMasked" class="mask1">
+            <img src="" alt="Preview" id="main_image">
+        </div>
+<br><br>
+    </div>
+
+    <script src="../JS/script.js"></script>
+    <script src="https://unpkg.com/cropperjs/dist/cropper.min.js"></script>
+
+</body>
+</html>
